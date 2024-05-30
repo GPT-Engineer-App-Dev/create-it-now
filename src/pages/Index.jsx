@@ -1,17 +1,19 @@
-// Update this page (the content is just a fallback if you fail and example)
-// Use chakra-ui
-import { Container, Text, VStack } from "@chakra-ui/react";
-
-// Example of using react-icons
-// import { FaRocket } from "react-icons/fa";
-// <IconButton aria-label="Add" icon={<FaRocket />} size="lg" />; // IconButton would also have to be imported from chakra
+import { Container, VStack, Heading, Input, Button, SimpleGrid, Box } from "@chakra-ui/react";
 
 const Index = () => {
   return (
-    <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
-      <VStack spacing={4}>
-        <Text fontSize="2xl">Your Blank Canvas</Text>
-        <Text>Chat with the agent to start making edits.</Text>
+    <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center" bg="gray.900" color="white">
+      <VStack spacing={6} width="100%">
+        <Heading as="h1" size="2xl" textAlign="center">What do you want to build?</Heading>
+        <Input placeholder="e.g. A sleek landing page for a SaaS business" size="lg" bg="gray.800" borderColor="gray.700" focusBorderColor="blue.500" />
+        <SimpleGrid columns={[2, null, 3]} spacing={4} width="100%">
+          {["Todo", "Personal website", "Notes", "Pomodoro", "Band website", "Chat"].map((label) => (
+            <Button key={label} size="lg" bg="blue.600" _hover={{ bg: "blue.700" }}>{label}</Button>
+          ))}
+        </SimpleGrid>
+        <Box width="100%" textAlign="center">
+          <Button size="lg" bg="green.500" _hover={{ bg: "green.600" }} width="50%">Create</Button>
+        </Box>
       </VStack>
     </Container>
   );
